@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "thin-film-database",
+  "private_key_id": "9fea61bbf558619786b5380fa9a6780ea2e62e8f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDG7GS7zXZvie2d\nNuiG0oVCWkMaS+qhQ8fRlHKeGHRcJPAO44Hwk8fQwTKWGjiiFCiift2Bq3GkEm8C\n3VTewpoP9nbxfVY8/GpHQpviOAFWHRh24KxHGpl6oATxU/SQ5w9TQ0ydktO76U/C\n+tV5txKZPIJAaoCwYUV+v49hWP1Jb3ADc35Gs1XKlLDBn/CJsxay4uPID4DlAy0K\nfun/JprmVzwnpcloy9/3qgJgND/zynoKZmdZ0D2L/gOOiab1n2qs4MRAPHlyzbG8\nOOIekuDWOhfbMlUYoTyPpQko/VjLYJVn/Z21SIP/tABKbLO+kAzTjulCIh8qLIIm\n/y+A2xmjAgMBAAECggEAKWAfHb8BPPb78QDsQarFJAWBQpV60ps2Ez4kzwR4I3hd\nZENnEiKy45Vjz7vZfsDhqNbpfOCrrPxWkcp2rjTc9agGmnk++EVqV7MfmGCcyowX\nvBZETy/Vr59cF9QmIQOmeOOdKoNRPhsrx3sD7yKooC3pS7u7U7SPz2rJyG5JlL3W\nF4wkJhDoMFV4vR3cjjfT+NqiwU8wp+03r2q08u5hWyKGnKZqTdtwTe0w4K1frNLs\n5Fn3LhzzeZ5rV9ojGKww/n0Z53+JgZGlvXDkECa7m0u5YDR1jDTLbn2iZToaKK3r\nodHc4s9bxQMS1wizVR2UinFeu1vFUUmMPO6Un24kjQKBgQD9Llj9BE+ln/keo36A\n+Orv02gDsSCfooZjYDXkxEkGpowF25js0hdLvqMAdL1aRkqp+nOUqh3KrNy7lQSd\nfVeu4QdbCVgmSsdDWzVCgtP6OH9iY2jZSL1cFePm5MYZSFKXt55/9ZQnJnN+K6ZO\n1ZjOgi5j3WEswLeBWqvjBLUVTwKBgQDJI2SiqkUlo/FFpzRE2VAAxjWcz6eQOyf+\nam9mYsa8uEnoLaBGwaj/gZfvykaA+bm8Voubex6x9jjXZu64+3GlwSlg3WWRpRjl\nQUExmBswwlgcR9EJsS2pOCn3VBqQUS7LOPV0tN+OJg5Nek7fBXAeQCN9+J5EK3Kq\nHonTWBrJbQKBgDlAldcBdpFZj5giGKVJpLb+83KCR4JR2ln2k7lbubfLSba5ZeeH\nysTSI0IjI/6aDqBJhoGDxqDiXjf9BsImagGd2W/4uPpPxqewpGaZ9x2KUSQKntcj\n385HFPZNnY5yEFtGpo0BF7OSumM5s634F0n7nknu8d6Q5e5WdrArjFd5AoGANxfR\ntdiLrh60tI5y+7TGfB/OiZA7Zn89mitPLi06IHEeFVGCCD99adb2ZgDyxNsiK9tM\nzB6yLq6xrRaNpu+AlpVNHzIlYvpk0k7Ia6wtLnLdLYniURRN3H78x7kquYLzHUkR\nupDcdxQncMNinSXhKvgIgLW7rBJ2ivBochI87BUCgYEA87mj9iMBuRJO7yKrYdAF\nHTyy+WsbEZ1QgGniojTRBdJ/hlAcFHqcFKAFLi5LbNpBznNd+1vp8k58czoyZNNU\nmok9KicwnrzYFUV8HtFtRt3XFmWBgRrfURtn4eWc7O/j7Ay8XQHHb5Sl7xVFG4Jv\nTlW5zPSl8SE00GbZBvOgyTg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-73dsf@thin-film-database.iam.gserviceaccount.com",
+  "client_id": "108819776388373652145",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-73dsf%40thin-film-database.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
