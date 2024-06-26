@@ -6,7 +6,7 @@ from io import BytesIO
 # Initialize Firebase
 def initialize_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("path/to/serviceAccountKey.json")
+        cred = credentials.Certificate("path/to/firestore-key.json")
         firebase_admin.initialize_app(cred, {
             'storageBucket': 'thin-film-database.appspot.com'
         })
