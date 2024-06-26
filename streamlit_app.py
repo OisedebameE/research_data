@@ -1,34 +1,41 @@
 import streamlit as st
-from google.cloud import firestore
+import firebase_admin
+from firebase_admin import credentials, storage
+from io import BytesIO
 
-# Authenticate to Firestore with the JSON account key.
-db = firestore.Client.from_service_account_json("firestore-key.json")
+# Initialize Firebase
+def initialize_firebase():
+    if not firebase_admin._apps:
+        cred = credentials.Certificate("path/to/serviceAccountKey.json")
+        firebase_admin.initialize_app(cred, {
+            'storageBucket': 'thin-film-database.appspot.com'
+        })
 
-# Create a reference to the Google post.
-doc_ref = db.collection("posts").document("Google")
+# Upload file to Firebase Storage
+def upload_to_firebase(file, file_name):
+    bucket = storage.bucket()
+    blob = bucket.blob(file_name)
+    blob.upload_from_file(file)
+    blob.make_public()
+    return blob.public_url
 
-# Then get the data at that reference.
-doc = doc_ref.get()
+# Streamlit app
+def main():
+    st.title("Text File Upload to Firebase Storage")
 
-# Let's see what we got!
-st.write("The id is: ", doc.id)
-st.write("The contents are: ", doc.to_dict())
+    uploaded_file = st.file_uploader("Choose a text file", type=["txt", "md", "csv"])
 
-# This time, we're creating a NEW post reference for Apple
-doc_ref = db.collection("posts").document("Apple")
+    if uploaded_file is not None:
+        file_name = uploaded_file.name
+        file = BytesIO(uploaded_file.read())
 
-# And then uploading some data to that reference
-doc_ref.set({
-	"title": "Apple",
-	"url": "www.apple.com"
-})
+        # Display file content
+        st.text(f"File content: {file.getvalue().decode('utf-8')}")
+        
+        if st.button("Upload to Firebase"):
+            initialize_firebase()
+            public_url = upload_to_firebase(file, file_name)
+            st.success(f"File uploaded successfully! [View File]({public_url})")
 
-# Now let's make a reference to ALL of the posts
-posts_ref = db.collection("posts")
-
-# For a reference to a collection, we use .stream() instead of .get()
-for doc in posts_ref.stream():
-	st.write("The id is: ", doc.id)
-	st.write("The contents are: ", doc.to_dict())
-
-
+if __name__ == "__main__":
+    main()
