@@ -3,4 +3,4 @@ google-cloud-firestore
 firebase-admin
 google-cloud-storage
 firebase
-pyrebase
+pyrebase4
