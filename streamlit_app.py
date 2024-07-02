@@ -48,21 +48,38 @@ def main():
 
 import pyrebase
 import streamlit as st
+from io import BytesIO
 
+# Firebase configuration
 config = {
   "apiKey": "AIzaSyDf_Gf0N4G2DygyRXid4XBdu9k5q4ITK3k",
   "authDomain": "thin-film-database.firebaseapp.com",
   "projectId": "thin-film-database",
   "storageBucket": "thin-film-database.appspot.com",
-  "serviceAccount": "serviceAccountKey.json"
+  "serviceAccount": "firestore-key.json"
 }
 
-firebase_storage = pyrebase.initilize_app(config)
-storage = firebase_storage.storage()
+# Initialize Firebase
+firebase = pyrebase.initialize_app(config)
+storage = firebase.storage()
+
+# Streamlit file uploader
+st.title("File Uploader to Firebase Storage")
 
 uploaded_file = st.file_uploader("Choose a file", type=["txt", "md", "csv"])
 
-storage.child(uploaded_file).put("data")
+if uploaded_file is not None:
+    # Display file details
+    st.write("File name:", uploaded_file.name)
+    st.write("File type:", uploaded_file.type)
+    st.write("File size:", uploaded_file.size, "bytes")
+    
+    # Upload file to Firebase Storage
+    with st.spinner('Uploading file to Firebase Storage...'):
+        file_buffer = BytesIO(uploaded_file.read())
+        storage.child(uploaded_file.name).put(file_buffer)
+        st.success("File uploaded successfully!")
+
 
 
 
