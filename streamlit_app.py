@@ -47,6 +47,7 @@ def main():
                 st.success(f"File uploaded successfully! [View File]({public_url})")'''
 
 import pyrebase
+import streamlit as st
 
 config = {
   "apiKey": "AIzaSyDf_Gf0N4G2DygyRXid4XBdu9k5q4ITK3k",
@@ -55,4 +56,17 @@ config = {
   "storageBucket": "thin-film-database.appspot.com",
   "serviceAccount": "serviceAccountKey.json"
 }
+
+firebase_storage = pyrebase.initilize_app(config)
+storage = firebase_storage.storage()
+
+uploaded_file = st.file_uploader("Choose a file", type=["txt", "md", "csv"])
+
+storage.child(uploaded_file).put("data")
+
+
+
+
+
+
 
