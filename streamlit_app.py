@@ -1,4 +1,4 @@
-import streamlit as st
+''' import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, storage
 from io import BytesIO
@@ -42,8 +42,17 @@ def main():
         if st.button("Upload to Firebase"):
             initialize_firebase()
             if firebase_admin._apps:
-                public_url = upload_to_firebase(file, file_name)
-                st.success(f"File uploaded successfully! [View File]({public_url})")
 
-if __name__ == "__main__":
-    main()
+                public_url = upload_to_firebase(file, file_name)
+                st.success(f"File uploaded successfully! [View File]({public_url})")'''
+
+import pyrebase
+
+config = {
+  "apiKey": "AIzaSyDf_Gf0N4G2DygyRXid4XBdu9k5q4ITK3k",
+  "authDomain": "thin-film-database.firebaseapp.com",
+  "projectId": "thin-film-database",
+  "storageBucket": "thin-film-database.appspot.com",
+  "serviceAccount": "serviceAccountKey.json"
+}
+
