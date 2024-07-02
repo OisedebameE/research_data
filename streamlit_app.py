@@ -1,4 +1,4 @@
-''' import streamlit as st
+""" import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, storage
 from io import BytesIO
@@ -44,7 +44,7 @@ def main():
             if firebase_admin._apps:
 
                 public_url = upload_to_firebase(file, file_name)
-                st.success(f"File uploaded successfully! [View File]({public_url})")'''
+                st.success(f"File uploaded successfully! [View File]({public_url})")
 
 import pyrebase
 import streamlit as st
@@ -78,7 +78,45 @@ if uploaded_file is not None:
     with st.spinner('Uploading file to Firebase Storage...'):
         file_buffer = BytesIO(uploaded_file.read())
         storage.child(uploaded_file.name).put(file_buffer)
+        st.success("File uploaded successfully!")"""
+
+import streamlit as st
+import firebase_admin
+from firebase_admin import credentials, storage
+from google.cloud import storage as gcs_storage
+from io import BytesIO
+
+# Initialize Firebase
+cred = credentials.Certificate('serviceAccountKey.json')
+firebase_admin.initialize_app(cred, {
+    'storageBucket': 'thin-film-database.appspot.com'
+})
+
+# Initialize Cloud Storage
+client = gcs_storage.Client()
+bucket = client.get_bucket('thin-film-database.appspot.com')
+
+# Streamlit file uploader
+st.title("File Uploader to Firebase Storage")
+
+uploaded_file = st.file_uploader("Choose a file", type=["txt", "md", "csv"])
+
+if uploaded_file is not None:
+    # Display file details
+    st.write("File name:", uploaded_file.name)
+    st.write("File type:", uploaded_file.type)
+    st.write("File size:", uploaded_file.size, "bytes")
+    
+    # Upload file to Firebase Storage
+    with st.spinner('Uploading file to Firebase Storage...'):
+        blob = bucket.blob(uploaded_file.name)
+        blob.upload_from_file(BytesIO(uploaded_file.read()), content_type=uploaded_file.type)
         st.success("File uploaded successfully!")
+
+        # Get the public URL of the uploaded file
+        blob.make_public()
+        st.write("Public URL:", blob.public_url)
+
 
 
 
